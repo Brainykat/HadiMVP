@@ -1,13 +1,25 @@
 version: '3.4'
 
 services:
-  db:
-    image: postgres
+  postgres_image:
+    image: postgres:latest
+    ports:
+      - "5432"
     restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+      - ./dbscripts/seed.sql :/docker-entrypoint-initdb.d/seed.sql
     environment:
-      POSTGRES_PASSWORD: qwerty1234
+      POSTGRES_USER: "orderinguser"
+      POSTGRES_PASSWORD: "orderinguser"
+      POSTGRES_DB: "orderingdb"
     networks:
         - hadi-container-network
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
 
   rabbitmqservice:
     restart: unless-stopped
@@ -53,3 +65,4 @@ volumes:
     name: rabbitmqservice
     external:
         false
+  db_volume:
