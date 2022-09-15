@@ -1,9 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using Ordering.Data;
+using Ordering.Data.Mongo.Configurations;
+using Ordering.Data.Repositories;
+using Ordering.Domain.Interfaces;
 using RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
+//postgress
 builder.Services.AddDbContext<OrderingContext>(o => o.UseNpgsql(builder.Configuration.GetConnectionString("OrderingConnectionString")));
+//Mongo Db
+builder.Services.Configure<OrderDatabaseSettings>(
+    builder.Configuration.GetSection("OrderMongoDatabase"));
 // Add services to the container.
 builder.Services.Configure<RabbitMQConfiguration>(builder.Configuration.GetSection(nameof(RabbitMQConfiguration)));
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();

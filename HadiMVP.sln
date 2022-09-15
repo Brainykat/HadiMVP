@@ -71,6 +71,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{BA0838AE-F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerBusinessDtos", "CustomerBusinessDtos\CustomerBusinessDtos.csproj", "{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Data.Mongo", "src\services\OrderSvc\Ordering.Data.Mongo\Ordering.Data.Mongo.csproj", "{64A742DD-7B69-4EFE-A194-A98E83CA228C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64A742DD-7B69-4EFE-A194-A98E83CA228C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64A742DD-7B69-4EFE-A194-A98E83CA228C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64A742DD-7B69-4EFE-A194-A98E83CA228C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64A742DD-7B69-4EFE-A194-A98E83CA228C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,6 +208,7 @@ Global
 		{D65E2B01-4DE5-44E8-BECF-8439A379C3CF} = {0318A241-46CB-4195-B0E3-0AFE9F096DA0}
 		{BA0838AE-FA4D-42F8-8764-C9493B335D66} = {5D193528-417C-4E4E-B0BE-194D1F4161D1}
 		{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11} = {BA0838AE-FA4D-42F8-8764-C9493B335D66}
+		{64A742DD-7B69-4EFE-A194-A98E83CA228C} = {0949A1B2-AC91-4E79-BE17-B910F65753C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {280CD2F5-CB09-4D77-84CA-B00DFAB5E365}
