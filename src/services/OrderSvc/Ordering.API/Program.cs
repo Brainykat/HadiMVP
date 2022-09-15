@@ -7,6 +7,7 @@ using Ordering.Data.Repositories;
 using Ordering.Domain.Interfaces;
 using Ordering.Services.EBServices;
 using Ordering.Services.Interfaces;
+using Ordering.Services.Services;
 using RabbitMQ;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.Configure<RabbitMQConfiguration>(builder.Configuration.GetSecti
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddTransient<IMongoOrderRepository, MongoOrderRepository>();
 builder.Services.AddTransient<IOrderService, OrderService>();
+builder.Services.AddTransient<ICreditScoreServices, CreditScoreServices>();
 builder.Services.AddTransient<IRaiseNewOrderCreation, RaiseNewOrderCreation>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

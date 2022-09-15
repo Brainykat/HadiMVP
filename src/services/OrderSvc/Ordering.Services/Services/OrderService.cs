@@ -17,13 +17,15 @@ using System.Threading.Tasks;
 
 namespace Ordering.Services.Services
 {
-  public class OrderService: ControllerBase
+ 
+
+  public class OrderService : ControllerBase, IOrderService
   {
     private readonly IOrderRepository repo;
     private readonly ILogger<OrderService> logger;
     private readonly IRaiseNewOrderCreation raiseNewOrderCreation;
     private readonly IMongoOrderRepository mongoOrderRepository;
-    public OrderService(IOrderRepository repo, ILogger<OrderService> logger, 
+    public OrderService(IOrderRepository repo, ILogger<OrderService> logger,
       IRaiseNewOrderCreation raiseNewOrderCreation, IMongoOrderRepository mongoOrderRepository)
     {
       this.repo = repo ?? throw new ArgumentNullException(nameof(repo));
@@ -31,8 +33,12 @@ namespace Ordering.Services.Services
       this.raiseNewOrderCreation = raiseNewOrderCreation ?? throw new ArgumentNullException(nameof(raiseNewOrderCreation));
       this.mongoOrderRepository = mongoOrderRepository ?? throw new ArgumentNullException(nameof(mongoOrderRepository));
     }
-    public async Task<List<Order>> GetCustomerBusinesses() =>
+    public async Task<List<Order>> GetAllOrders() =>
      await repo.GetOrders();
+    public async Task<List<Order>> GetOrdersPerBusines(Guid businessId) =>
+     await repo.GetOrdersPerBusiness(businessId);
+    public async Task<List<Order>> GetOrdersPerBusines(Guid businessId, DateTime startDate, DateTime endDate) =>
+     await repo.GetOrdersPerBusiness(businessId, startDate, endDate);
     public async Task<Order> Get(Guid orderId) =>
       await repo.Getorder(orderId);
     public async Task<IActionResult> Add(OrderDto dto, Guid user)
@@ -40,11 +46,11 @@ namespace Ordering.Services.Services
       try
       {
         if (!dto.Items.Any())
-          ModelState.AddModelError(nameof(dto.Items), $"Please add at least one item to the order");        
+          ModelState.AddModelError(nameof(dto.Items), $"Please add at least one item to the order");
         if (!ModelState.IsValid)
           return BadRequest(ModelState);
         var order = Order.Create(dto.BusinessId, dto.OrderDescription, user);
-        //This can be done better for buying two of the same item
+        //This can be done better for buying two of the same item....
         decimal totalOrderAmount = 0;
         foreach (var item in dto.Items)
         {
@@ -52,7 +58,7 @@ namespace Ordering.Services.Services
           {
             order.AddItem(Item.Create(order.Id, item.Description, item.Name, Money.Create(item.Currency, item.Amount)));
             totalOrderAmount += item.Amount;
-          }            
+          }
         }
         if (order.Items.Any())
         {
@@ -63,7 +69,7 @@ namespace Ordering.Services.Services
         await mongoOrderRepository.CreateAsync(mongoOrder);
         //Raise Event for External concers to create initail make Gov API request
         var result = raiseNewOrderCreation.RaiseNewCustomerIdentityEvent(
-          new NewOrderEBDto(order.Id,"022",totalOrderAmount));
+          new NewOrderEBDto(order.Id, "022", totalOrderAmount));
         return result ? Ok(order) : throw new Exception("Order event could not be raised");
       }
       catch (Exception ex)
