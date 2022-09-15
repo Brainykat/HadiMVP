@@ -1,4 +1,5 @@
-﻿using Customers.Domain.Entities;
+﻿using Customers.Data.DBConfigurations;
+using Customers.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
