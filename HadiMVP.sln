@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{49
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{5D193528-417C-4E4E-B0BE-194D1F4161D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Base.Shared", "src\shared\Common.Base.Shared\Common.Base.Shared.csproj", "{4FBED5CC-17DC-4A6B-9D31-6F31EDB8DE10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Base.Shared", "src\shared\Common.Base.Shared\Common.Base.Shared.csproj", "{4FBED5CC-17DC-4A6B-9D31-6F31EDB8DE10}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountSvc", "AccountSvc", "{3A4CE55C-E75F-4060-9E77-210A80734797}"
 EndProject
@@ -27,53 +27,57 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentitySvc", "IdentitySvc"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.API", "src\services\AccountSvc\Accounts.API\Accounts.API.csproj", "{8E79AC51-B6D4-44CB-BA0C-CB90E565A417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.Domain", "src\services\AccountSvc\Accounts.Domain\Accounts.Domain.csproj", "{3F550739-09D8-42D1-BFF4-85B29E847C82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.Domain", "src\services\AccountSvc\Accounts.Domain\Accounts.Domain.csproj", "{3F550739-09D8-42D1-BFF4-85B29E847C82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.Data", "src\services\AccountSvc\Accounts.Data\Accounts.Data.csproj", "{1E03C177-1693-4808-BFAB-27155FB14998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.Data", "src\services\AccountSvc\Accounts.Data\Accounts.Data.csproj", "{1E03C177-1693-4808-BFAB-27155FB14998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.Services", "src\services\AccountSvc\Accounts.Services\Accounts.Services.csproj", "{A01FCECA-D12D-4EC5-AA13-615A3A147AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.Services", "src\services\AccountSvc\Accounts.Services\Accounts.Services.csproj", "{A01FCECA-D12D-4EC5-AA13-615A3A147AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.K8", "src\services\AccountSvc\Accounts.K8\Accounts.K8.csproj", "{A82A056A-5F58-4A21-AC56-215EEAC35079}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.K8", "src\services\AccountSvc\Accounts.K8\Accounts.K8.csproj", "{A82A056A-5F58-4A21-AC56-215EEAC35079}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.API", "src\services\CustomerSvc\Customers.API\Customers.API.csproj", "{B8AC2EDD-1D3E-4D4D-85F2-CD0E61AF6402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.API", "src\services\CustomerSvc\Customers.API\Customers.API.csproj", "{B8AC2EDD-1D3E-4D4D-85F2-CD0E61AF6402}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Data", "src\services\CustomerSvc\Customers.Data\Customers.Data.csproj", "{FF3389B0-AD27-4B24-994B-FEDECAC03DCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Data", "src\services\CustomerSvc\Customers.Data\Customers.Data.csproj", "{FF3389B0-AD27-4B24-994B-FEDECAC03DCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Domain", "src\services\CustomerSvc\Customers.Domain\Customers.Domain.csproj", "{22FCF0B6-F014-4537-B98F-FE66013D79F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Domain", "src\services\CustomerSvc\Customers.Domain\Customers.Domain.csproj", "{22FCF0B6-F014-4537-B98F-FE66013D79F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Customers.Services", "src\services\CustomerSvc\Customers.Services\Customers.Services.csproj", "{72EF448B-5E72-48D4-AAD8-B8D72C1B56CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Customers.Services", "src\services\CustomerSvc\Customers.Services\Customers.Services.csproj", "{72EF448B-5E72-48D4-AAD8-B8D72C1B56CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventories.API", "src\services\InventorySvc\Inventories.API\Inventories.API.csproj", "{610F2F5A-E16D-4ACD-BB6B-E2E304B65DA0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventories.API", "src\services\InventorySvc\Inventories.API\Inventories.API.csproj", "{610F2F5A-E16D-4ACD-BB6B-E2E304B65DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventories.Data", "src\services\InventorySvc\Inventories.Data\Inventories.Data.csproj", "{88070FB2-8E16-4EB1-90CA-67812B195331}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventories.Data", "src\services\InventorySvc\Inventories.Data\Inventories.Data.csproj", "{88070FB2-8E16-4EB1-90CA-67812B195331}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventories.Domain", "src\services\InventorySvc\Inventories.Domain\Inventories.Domain.csproj", "{E5919734-F373-4214-86F2-68C5FDA03352}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventories.Domain", "src\services\InventorySvc\Inventories.Domain\Inventories.Domain.csproj", "{E5919734-F373-4214-86F2-68C5FDA03352}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "src\services\OrderSvc\Ordering.API\Ordering.API.csproj", "{6D64484A-EA52-4005-BA90-73FF4EDDBC94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.API", "src\services\OrderSvc\Ordering.API\Ordering.API.csproj", "{6D64484A-EA52-4005-BA90-73FF4EDDBC94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Data", "src\services\OrderSvc\Ordering.Data\Ordering.Data.csproj", "{908CDB0A-3D8D-4FCC-9F0D-8752259EA304}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Data", "src\services\OrderSvc\Ordering.Data\Ordering.Data.csproj", "{908CDB0A-3D8D-4FCC-9F0D-8752259EA304}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Domain", "src\services\OrderSvc\Ordering.Domain\Ordering.Domain.csproj", "{393677A4-680F-4748-80D4-40596F695A52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Domain", "src\services\OrderSvc\Ordering.Domain\Ordering.Domain.csproj", "{393677A4-680F-4748-80D4-40596F695A52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventories.Services", "src\services\InventorySvc\Inventories.Services\Inventories.Services.csproj", "{83389651-4090-4061-913C-9219DE22EBBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventories.Services", "src\services\InventorySvc\Inventories.Services\Inventories.Services.csproj", "{83389651-4090-4061-913C-9219DE22EBBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Services", "src\services\OrderSvc\Ordering.Services\Ordering.Services.csproj", "{8B176C0C-1F08-428E-9C33-FF0DAA7E3B32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Services", "src\services\OrderSvc\Ordering.Services\Ordering.Services.csproj", "{8B176C0C-1F08-428E-9C33-FF0DAA7E3B32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HadiWebBFF", "src\APIAggregator\HadiWebBFF\HadiWebBFF.csproj", "{55EAF190-FCDC-4034-B5A3-AFBC822EB90E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HadiWebBFF", "src\APIAggregator\HadiWebBFF\HadiWebBFF.csproj", "{55EAF190-FCDC-4034-B5A3-AFBC822EB90E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HadiHealthChecks", "src\HealthChecks\HadiHealthChecks\HadiHealthChecks.csproj", "{D543FBC6-317E-4037-89E0-612091FF7596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HadiHealthChecks", "src\HealthChecks\HadiHealthChecks\HadiHealthChecks.csproj", "{D543FBC6-317E-4037-89E0-612091FF7596}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventBus", "EventBus", "{0318A241-46CB-4195-B0E3-0AFE9F096DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQ", "src\shared\EventBus\RabbitMQ\RabbitMQ.csproj", "{D65E2B01-4DE5-44E8-BECF-8439A379C3CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ", "src\shared\EventBus\RabbitMQ\RabbitMQ.csproj", "{D65E2B01-4DE5-44E8-BECF-8439A379C3CF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dtos", "Dtos", "{BA0838AE-FA4D-42F8-8764-C9493B335D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerBusinessDtos", "CustomerBusinessDtos\CustomerBusinessDtos.csproj", "{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerBusinessDtos", "CustomerBusinessDtos\CustomerBusinessDtos.csproj", "{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Data.Mongo", "src\services\OrderSvc\Ordering.Data.Mongo\Ordering.Data.Mongo.csproj", "{64A742DD-7B69-4EFE-A194-A98E83CA228C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Data.Mongo", "src\services\OrderSvc\Ordering.Data.Mongo\Ordering.Data.Mongo.csproj", "{64A742DD-7B69-4EFE-A194-A98E83CA228C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingDtos", "src\shared\Dtos\OrderingDtos\OrderingDtos.csproj", "{3C86E1B7-132B-4D82-B194-93FCF023078A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderingDtos", "src\shared\Dtos\OrderingDtos\OrderingDtos.csproj", "{3C86E1B7-132B-4D82-B194-93FCF023078A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InfrastructureSvc", "InfrastructureSvc", "{C29F1A8F-AC61-40FE-8269-6A3CDA846922}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.API", "src\services\InfrastructureSvc\Infrastructure.API\Infrastructure.API.csproj", "{8E408C63-2D22-4749-B65C-3ACBB77D86DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -177,6 +181,10 @@ Global
 		{3C86E1B7-132B-4D82-B194-93FCF023078A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C86E1B7-132B-4D82-B194-93FCF023078A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C86E1B7-132B-4D82-B194-93FCF023078A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E408C63-2D22-4749-B65C-3ACBB77D86DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E408C63-2D22-4749-B65C-3ACBB77D86DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E408C63-2D22-4749-B65C-3ACBB77D86DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E408C63-2D22-4749-B65C-3ACBB77D86DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,6 +224,8 @@ Global
 		{EB35EB1E-3034-4B52-A777-4EA8A6E1AA11} = {BA0838AE-FA4D-42F8-8764-C9493B335D66}
 		{64A742DD-7B69-4EFE-A194-A98E83CA228C} = {0949A1B2-AC91-4E79-BE17-B910F65753C0}
 		{3C86E1B7-132B-4D82-B194-93FCF023078A} = {BA0838AE-FA4D-42F8-8764-C9493B335D66}
+		{C29F1A8F-AC61-40FE-8269-6A3CDA846922} = {4929081D-7243-438E-B6F9-AAF6308AD1D8}
+		{8E408C63-2D22-4749-B65C-3ACBB77D86DE} = {C29F1A8F-AC61-40FE-8269-6A3CDA846922}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {280CD2F5-CB09-4D77-84CA-B00DFAB5E365}
