@@ -18,5 +18,10 @@
 - Raise event to Government API
     This event will be consumed by infrastructure API which will update the record after receiving response from the external concern 
 - Log to Mongo DB for credit Scoring
-    
-  
+# Infrastructure Service
+- On startup an Event Bus Consumer service is registered which listens to new Order events raised by ordering service and makes http POST request to Government API to log data for tax purposes  
+# Running via Docker
+- Project contains the `docker-compose.vs.debug.yml` and `docker-compose.override.yml` to enable debugging with a seeded environment.
+- The following possibility to get a running seeded and debug-able (in VS) environment:
+`docker-compose build
+docker-compose up -d`
