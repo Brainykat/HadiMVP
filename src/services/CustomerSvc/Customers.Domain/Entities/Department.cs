@@ -1,7 +1,9 @@
 ﻿using Common.Base.Shared;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customers.Domain.Entities
 {
+  [Table("Departments")]
   public class Department :EntityBase
   {
     public static Department Create(string name) => new Department(name);

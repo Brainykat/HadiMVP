@@ -1,8 +1,10 @@
 ﻿using Common.Base.Shared;
 using Common.Base.Shared.ValueObjects;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customers.Domain.Entities
 {
+  [Table("CustomerBusinesses")]
   public class CustomerBusiness : EntityBase
   {
     public static CustomerBusiness Create(string name, string registrationNumber,

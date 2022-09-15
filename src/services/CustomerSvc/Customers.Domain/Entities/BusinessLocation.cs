@@ -1,7 +1,9 @@
 ﻿using Common.Base.Shared;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customers.Domain.Entities
 {
+  [Table("BusinessLocations")]
   public class BusinessLocation : EntityBase
   {
     public static BusinessLocation Create(Guid customerBusinessId, string name, decimal latitude, decimal longitude)

@@ -1,10 +1,13 @@
 ﻿using Common.Base.Shared;
 using Common.Base.Shared.ValueObjects;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customers.Domain.Entities
 {
+  [Table("Employees")]
   public class Employee : EntityBase
   {
+    
     public static Employee Create(Name name, string jobNumber, string idNumber, string email, string phone)
       => new Employee(name, jobNumber, idNumber, email, phone);
     public void AddDepartment(EmployeeDepartment employeeDepartment) =>

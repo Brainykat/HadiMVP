@@ -1,7 +1,9 @@
 ﻿using Common.Base.Shared;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Customers.Domain.Entities
 {
+  [Table("EmployeeDepartments")]
   public class EmployeeDepartment : EntityBase
   {
     public static EmployeeDepartment Create(Guid employeeId, Guid departmentId, bool isDepartmentHead = false)
