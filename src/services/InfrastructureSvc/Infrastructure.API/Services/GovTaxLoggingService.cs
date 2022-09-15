@@ -29,6 +29,10 @@ namespace Infrastructure.API.Services
       {
         var content = new StringContent(JsonConvert.SerializeObject(dto), System.Text.Encoding.UTF8, "application/json");
         var response = await httpClient.PostAsync($"...", content);
+        if (response.IsSuccessStatusCode)
+        {
+          //TODO: update order Status in database....
+        }
         return response.IsSuccessStatusCode;
       }
       catch (Exception ex)
