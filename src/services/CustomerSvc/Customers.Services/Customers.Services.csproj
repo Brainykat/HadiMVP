@@ -11,6 +11,7 @@
 	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\CustomerBusinessDtos\CustomerBusinessDtos.csproj" />
+    <ProjectReference Include="..\..\..\shared\EventBus\RabbitMQ\RabbitMQ.csproj" />
     <ProjectReference Include="..\Customers.Domain\Customers.Domain.csproj" />
   </ItemGroup>
 
