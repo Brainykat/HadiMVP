@@ -5,5 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+		<PackageReference Include="RabbitMQ.Client" Version="6.4.0" />
+	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\Dtos\OrderingDtos\OrderingDtos.csproj" />
+    <ProjectReference Include="..\..\..\shared\EventBus\RabbitMQ\RabbitMQ.csproj" />
+    <ProjectReference Include="..\Ordering.Data.Mongo\Ordering.Data.Mongo.csproj" />
+    <ProjectReference Include="..\Ordering.Domain\Ordering.Domain.csproj" />
+  </ItemGroup>
 
 </Project>

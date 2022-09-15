@@ -6,8 +6,6 @@ using Ordering.Data.Mongo.Interfaces;
 
 namespace Ordering.Data.Mongo.Repositories
 {
-
-
   public class MongoOrderRepository : IMongoOrderRepository
   {
     private readonly IMongoCollection<MongoOrder> _ordersCollection;

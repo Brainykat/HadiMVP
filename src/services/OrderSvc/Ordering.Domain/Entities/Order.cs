@@ -6,17 +6,18 @@ namespace Ordering.Domain.Entities
   [Table("Orders")]
   public  class Order : EntityBase
   {
-    public static Order Create(Guid businessId, string orderDescription, Guid user, List<Item> items)
-      => new Order(businessId, orderDescription, user, items);
-    private Order(Guid businessId, string orderDescription, Guid user,  List<Item> items)
+    public static Order Create(Guid businessId, string orderDescription, Guid user)
+      => new Order(businessId, orderDescription, user);
+    private Order(Guid businessId, string orderDescription, Guid user)
     {
+      GenerateNewIdentity();
       BusinessId = businessId;
       OrderDescription = orderDescription ?? throw new ArgumentNullException(nameof(orderDescription));
       User = user;
       GovAPIStatus = 0;
-      Items = items ?? throw new ArgumentNullException(nameof(items));
+      Items = new List<Item>();
     }
-
+    public void AddItem(Item item) => Items.Add(item);
     public Guid BusinessId { get; set; }
     public string OrderDescription { get; set; }
     public Guid User { get; set; }

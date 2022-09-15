@@ -30,6 +30,7 @@
     <ProjectReference Include="..\..\..\shared\EventBus\RabbitMQ\RabbitMQ.csproj" />
     <ProjectReference Include="..\Ordering.Data.Mongo\Ordering.Data.Mongo.csproj" />
     <ProjectReference Include="..\Ordering.Data\Ordering.Data.csproj" />
+    <ProjectReference Include="..\Ordering.Services\Ordering.Services.csproj" />
   </ItemGroup>
 
 </Project>
