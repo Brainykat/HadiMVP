@@ -12,5 +12,10 @@
     public string CustomerRouteKey { get; set; } 
     public string CustomerExchange { get; set; } 
     public string CustomerExchangeType { get; set; }
+
+    public string OrderingQueueName { get; set; }
+    public string OrderingRouteKey { get; set; }
+    public string OrderingExchange { get; set; }
+    public string OrderingExchangeType { get; set; }
   }
 }
