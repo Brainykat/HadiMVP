@@ -1,11 +1,13 @@
 ﻿using Common.Base.Shared.ValueObjects;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Ordering.Data.Mongo.Entities;
 using Ordering.Data.Mongo.Interfaces;
 using Ordering.Domain.Entities;
 using Ordering.Domain.Interfaces;
 using Ordering.Services.Interfaces;
 using OrderingDtos;
+using RabbitMQ.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,19 +45,24 @@ namespace Ordering.Services.Services
           return BadRequest(ModelState);
         var order = Order.Create(dto.BusinessId, dto.OrderDescription, user);
         //This can be done better for buying two of the same item
+        decimal totalOrderAmount = 0;
         foreach (var item in dto.Items)
         {
           if (item.Amount > 0)
+          {
             order.AddItem(Item.Create(order.Id, item.Description, item.Name, Money.Create(item.Currency, item.Amount)));
+            totalOrderAmount += item.Amount;
+          }            
         }
-        await repo.Add(order);
-        var claims = new Dictionary<string, string>();
-        claims.Add("BusinessId", cust.Id.ToString());
-        //Raise Event for identity server to create initail user
-        var result = raiseCustomerAccountOpening.RaiseNewCustomerIdentityEvent(
-          new NewCustomerEBDto(cust.Id, cust.Owner.FullName, cust.Email, cust.Phone, "BusinessOwner",
-          claims));
-        return result ? Ok(cust) : throw new Exception("Customer initial system User could not be created");
+        if (order.Items.Any())
+        {
+          await repo.Add(order);
+        }
+        var mongoOrder = new MongoOrder()
+        //Raise Event for External concers to create initail make Gov API request
+        var result = raiseNewOrderCreation.RaiseNewCustomerIdentityEvent(
+          new NewOrderEBDto(order.Id,"022",totalOrderAmount));
+        return result ? Ok(order) : throw new Exception("Customer initial system User could not be created");
       }
       catch (Exception ex)
       {
