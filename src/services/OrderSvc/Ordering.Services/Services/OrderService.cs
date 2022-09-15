@@ -58,11 +58,13 @@ namespace Ordering.Services.Services
         {
           await repo.Add(order);
         }
-        var mongoOrder = new MongoOrder()
+        //Log Order to Mongo DB
+        var mongoOrder = new MongoOrder(order.Id.ToString(), order.BusinessId.ToString(), totalOrderAmount, DateTime.UtcNow, "new");
+        await mongoOrderRepository.CreateAsync(mongoOrder);
         //Raise Event for External concers to create initail make Gov API request
         var result = raiseNewOrderCreation.RaiseNewCustomerIdentityEvent(
           new NewOrderEBDto(order.Id,"022",totalOrderAmount));
-        return result ? Ok(order) : throw new Exception("Customer initial system User could not be created");
+        return result ? Ok(order) : throw new Exception("Order event could not be raised");
       }
       catch (Exception ex)
       {
