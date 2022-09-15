@@ -7,8 +7,10 @@ namespace Customers.Domain.Interfaces
     Task Add(CustomerBusiness customerBusiness);
     Task Delete(CustomerBusiness customerBusiness);
     Task<CustomerBusiness> GetCustomerBusinessAsync(Guid id);
-    Task<List<CustomerBusiness>> GetCustomerBusinesses(Guid customerBusinessId);
+    Task<List<CustomerBusiness>> GetCustomerBusinesses();
     Task<CustomerBusiness> GetCustomerBusinessTracked(Guid id);
+    Task<bool> IsEmailUsed(string email);
+    Task<bool> IsPhoneUsed(string phone);
     Task Update(CustomerBusiness customerBusiness);
   }
 }

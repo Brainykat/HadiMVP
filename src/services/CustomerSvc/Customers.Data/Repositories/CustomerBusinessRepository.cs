@@ -11,12 +11,16 @@ namespace Customers.Data.Repositories
     {
       this.context = context ?? throw new ArgumentNullException(nameof(context));
     }
-    public async Task<List<CustomerBusiness>> GetCustomerBusinesses(Guid customerBusinessId) =>
-      await context.CustomerBusinesses.AsNoTracking().Where(a => a.Id == customerBusinessId).ToListAsync();
+    public async Task<List<CustomerBusiness>> GetCustomerBusinesses() =>
+      await context.CustomerBusinesses.AsNoTracking().ToListAsync();
     public async Task<CustomerBusiness> GetCustomerBusinessAsync(Guid id) =>
       await context.CustomerBusinesses.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
     public async Task<CustomerBusiness> GetCustomerBusinessTracked(Guid id) =>
       await context.CustomerBusinesses.FirstOrDefaultAsync(a => a.Id == id);
+    public async Task<bool> IsPhoneUsed(string phone) =>
+      await context.CustomerBusinesses.AsNoTracking().AnyAsync(cb => cb.Phone == phone);
+    public async Task<bool> IsEmailUsed(string email) =>
+      await context.CustomerBusinesses.AsNoTracking().AnyAsync(cb => cb.Email == email);
     public async Task Add(CustomerBusiness customerBusiness)
     {
       context.CustomerBusinesses.Add(customerBusiness);
