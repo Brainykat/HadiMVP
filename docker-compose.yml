@@ -1,0 +1,55 @@
+version: '3.4'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: qwerty1234
+    networks:
+        - hadi-container-network
+
+  rabbitmqservice:
+    restart: unless-stopped
+    image: rabbitmq:3-management
+    container_name: rabbitmqservice
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
+        - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+        - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+    networks:
+        - hadi-container-network
+
+  infrastructure.api:
+    image: ${DOCKER_REGISTRY-}infrastructureapi
+    build:
+      context: .
+      dockerfile: src/services/InfrastructureSvc/Infrastructure.API/Dockerfile
+    networks:
+        - hadi-container-network
+    depends_on:
+        - "rabbitmqservice"
+
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: src/services/OrderSvc/Ordering.API/Dockerfile
+    networks:
+        - hadi-container-network
+    depends_on:
+        - "rabbitmqservice"
+
+networks:
+  hadi-container-network:
+   driver: bridge
+
+volumes:
+  rabbitmqservice:
+    driver: local
+    name: rabbitmqservice
+    external:
+        false
