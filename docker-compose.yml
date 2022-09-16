@@ -30,8 +30,8 @@ services:
     image: rabbitmq:3.9-management-alpine
     container_name: rabbitmqservice
     ports:
-        - 5674:5672
-        - 15674:15672
+        - 5672:5672
+        - 15672:15672
     environment:
         - RABBITMQ_DEFAULT_USER=rabbituser
         - RABBITMQ_DEFAULT_PASS=rabbitpwd
