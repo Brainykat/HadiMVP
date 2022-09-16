@@ -20,8 +20,18 @@ namespace Ordering.API.Controllers
       => Ok(await service.GetAllOrders());
 
     [HttpGet("{businessId}")]
-    public async Task<IActionResult> GetOrdersPerBusines(Guid businessId) 
+    public async Task<IActionResult> GetOrdersPerBusiness(Guid businessId) 
       => Ok(await service.GetOrdersPerBusines(businessId));
+    /// <summary>
+    /// There is a more elegant way of doing this with a time range value object
+    /// </summary>
+    /// <param name="businessId"></param>
+    /// <param name="startDate"></param>
+    /// <param name="endDate"></param>
+    /// <returns></returns>
+    [HttpGet("{businessId}/{startDate}/{endDate}")]
+    public async Task<IActionResult> GetOrdersPerBusinessRange(Guid businessId, DateTime startDate, DateTime endDate)
+      => Ok(await service.GetOrdersPerBusines(businessId,startDate,endDate));
 
     [HttpGet("{orderId}")]
     public async Task<IActionResult> GetOrder(Guid orderId)
