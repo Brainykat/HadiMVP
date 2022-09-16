@@ -3,6 +3,7 @@ version: '3.4'
 services:
   postgres_image:
     image: postgres:latest
+    container_name: postgres_image
     ports:
       - "5432"
     restart: always
@@ -15,23 +16,28 @@ services:
       POSTGRES_DB: "orderingdb"
     networks:
         - hadi-container-network
-  mongo:
+  mongodb:
     image: mongo
+    container_name: mongodb
     restart: always
     ports:
       - 27017:27017
+    networks:
+        - hadi-container-network
 
   rabbitmqservice:
     restart: unless-stopped
-    image: rabbitmq:3-management
+    image: rabbitmq:3.9-management-alpine
     container_name: rabbitmqservice
     ports:
-        - 5672:5672
-        - 15672:15672
-    volumes:
-        - ./.docker/rabbitmq/etc/:/etc/rabbitmq/
-        - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
-        - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+        - 5674:5672
+        - 15674:15672
+    environment:
+        - RABBITMQ_DEFAULT_USER=rabbituser
+        - RABBITMQ_DEFAULT_PASS=rabbitpwd
+    #volumes:
+    #    - ~/.docker/rabbitmq/data/:/var/lib/rabbitmq/
+    #    - ~/.docker/rabbitmq/logs/:/var/log/rabbitmq/
     networks:
         - hadi-container-network
 
@@ -44,6 +50,7 @@ services:
         - hadi-container-network
     depends_on:
         - "rabbitmqservice"
+        
 
   ordering.api:
     image: ${DOCKER_REGISTRY-}orderingapi
@@ -54,6 +61,8 @@ services:
         - hadi-container-network
     depends_on:
         - "rabbitmqservice"
+        - "mongodb"
+        - "postgres_image"
 
 networks:
   hadi-container-network:
