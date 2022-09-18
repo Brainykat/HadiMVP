@@ -19,9 +19,9 @@ namespace Ordering.Data.Repositories
     public async Task<List<Order>> GetOrdersPerBusiness(Guid businessId,DateTime startDate, DateTime endDate) =>
       await context.Orders.AsNoTracking()
       .Where(o => o.BusinessId == businessId && o.DateCreated >= startDate && o.DateCreated <= endDate).ToListAsync();
-    public async Task<Order> Getorder(Guid id) =>
+    public async Task<Order?> Getorder(Guid id) =>
       await context.Orders.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
-    public async Task<Order> GetOrderTracked(Guid id) =>
+    public async Task<Order?> GetOrderTracked(Guid id) =>
       await context.Orders.FirstOrDefaultAsync(a => a.Id == id);
 
     public async Task Add(Order order)
