@@ -65,6 +65,8 @@ namespace Ordering.Services.Services
           await repo.Add(order);
         }
         //Log Order to Mongo DB
+        //Mongo will complain here because GUID is 36 characters and Mongo BsonId is 24 characters
+        //TODO: Fix above by creating extension to map
         var mongoOrder = new MongoOrder(order.Id.ToString(), order.BusinessId.ToString(), totalOrderAmount, DateTime.UtcNow, "new");
         await mongoOrderRepository.CreateAsync(mongoOrder);
         //Raise Event for External concers to create initail make Gov API request
